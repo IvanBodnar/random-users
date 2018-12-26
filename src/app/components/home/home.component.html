@@ -9,8 +9,11 @@
     <table class="table">
       <thead>
         <tr>
-          <th>First</th>
-          <th>Last</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Teléfono</th>
+          <th>Dirección</th>
+          <th>Foto</th>
         </tr>
       </thead>
 
@@ -21,6 +24,9 @@
         >
           <td>{{ user.firstName }}</td>
           <td>{{ user.lastName }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.address }}</td>
+          <td><img [src]="user.thumbnail" alt="user thumbnail"></td>
         </tr>
       </tbody>
     </table>
