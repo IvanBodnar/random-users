@@ -1,4 +1,7 @@
 
 .home-container {
-  display: flex;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 4fr;
+  place-items: center center;
 }

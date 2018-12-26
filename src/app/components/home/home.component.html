@@ -1,5 +1,28 @@
 
 <div class="home-container">
-  <div></div>
+  <div>
+
+  </div>
+
+  <div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>First</th>
+          <th>Last</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let user of usersArray">
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
 </div>
 
