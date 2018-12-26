@@ -2,6 +2,13 @@
 .home-container {
   height: 100%;
   display: grid;
-  grid-template-rows: 1fr 4fr;
-  place-items: center center;
+  grid-template-rows: 1fr;
+  padding: 50px;
+  justify-items: center;
+  align-items: start;
 }
+
+tbody > tr {
+  cursor: pointer;
+}
+
