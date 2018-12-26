@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import {DataService} from '../../services/data.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private dataService: DataService
+  ) { }
 
   ngOnInit() {
+    this.dataService.getUsers()
+      .subscribe(
+        data => console.log(data),
+        err => console.log(err)
+      );
   }
 
 }
