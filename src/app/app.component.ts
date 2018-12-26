@@ -13,6 +13,6 @@ export class AppComponent {
   constructor(
     private dataService: DataService
   ) {
-    this.dataService.intit();
+    this.dataService.init();
   }
 }
