@@ -15,7 +15,10 @@
       </thead>
 
       <tbody>
-        <tr *ngFor="let user of usersArray">
+        <tr
+          (click)="onDetail(user)"
+          *ngFor="let user of usersArray"
+        >
           <td>{{ user.firstName }}</td>
           <td>{{ user.lastName }}</td>
         </tr>

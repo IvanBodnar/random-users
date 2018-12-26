@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {DataService} from '../../services/data.service';
 import UserModel from '../../models/user.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,8 @@ export class HomeComponent implements OnInit {
   usersArray: UserModel[];
 
   constructor(
-    private dataService: DataService
+    private dataService: DataService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -23,6 +25,10 @@ export class HomeComponent implements OnInit {
         },
         err => console.log(err)
       );
+  }
+
+  onDetail( user: UserModel ): void {
+    this.router.navigate( [ '/detail' ] );
   }
 
 }
