@@ -35,7 +35,10 @@ export class DataService {
                 item.picture.thumbnail,
                 new UserDetailsModel(
                   item.gender,
-                  item.email
+                  item.email,
+                  item.dob.date,
+                  item.dob.age,
+                  item.picture.large
                 )
               )
             );
