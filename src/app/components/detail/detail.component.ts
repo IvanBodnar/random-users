@@ -19,7 +19,6 @@ export class DetailComponent implements OnInit {
     this.dataService.currentUser$
       .subscribe(
         user => {
-          console.log(user)
           this.currentUser = user;
         },
         error => console.log(error)
