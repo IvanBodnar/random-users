@@ -6,7 +6,7 @@
 
   <div>
 
-    <app-search></app-search>
+    <app-search (filterTermChange)="onFilterChange( $event )"></app-search>
 
     <table class="table">
       <thead>
@@ -22,7 +22,7 @@
       <tbody>
         <tr
           (click)="onDetail(user)"
-          *ngFor="let user of usersArray"
+          *ngFor="let user of filteredArray"
         >
           <td>{{ user.firstName }}</td>
           <td>{{ user.lastName }}</td>
