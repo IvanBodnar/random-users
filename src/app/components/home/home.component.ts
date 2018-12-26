@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
   }
 
   onDetail( user: UserModel ): void {
+    this.dataService.setCurrentUser( user );
     this.router.navigate( [ '/detail' ] );
   }
 
