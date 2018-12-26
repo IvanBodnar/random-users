@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import {DataService} from '../../services/data.service';
+import UserModel from '../../models/user.model';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,7 @@ import {DataService} from '../../services/data.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  usersArray: UserModel[];
 
   constructor(
     private dataService: DataService
@@ -16,7 +18,9 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.dataService.getUsers()
       .subscribe(
-        data => console.log(data),
+        data => {
+          this.usersArray = data;
+        },
         err => console.log(err)
       );
   }
