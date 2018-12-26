@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 import {environment} from '../../environments/environment';
-import {map} from 'rxjs/operators';
 import UserModel from '../models/user.model';
 import UserDetailsModel from '../models/user-details.model';
 
@@ -12,12 +12,14 @@ import UserDetailsModel from '../models/user-details.model';
 })
 export class DataService {
   baseUrl = environment.baseUrl;
+  private _currentUserSubject = new BehaviorSubject( <UserModel>null );
+  currentUser$: Observable<UserModel> = this._currentUserSubject.asObservable();
 
   constructor(
     private http: HttpClient
   ) { }
 
-  intit() { }
+  init() { }
 
   getUsers(): Observable<UserModel[]> {
     return this.http.get<any>( this.baseUrl + '?results=5' )
@@ -40,5 +42,9 @@ export class DataService {
           }
         )
       );
+  }
+
+  setCurrentUser( user: UserModel ): void {
+    this._currentUserSubject.next( user );
   }
 }
