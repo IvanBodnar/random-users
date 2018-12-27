@@ -1,5 +1,8 @@
 
 <div *ngIf="currentUser" class="detail-container">
+  <div class="back">
+    <i (click)="onBack()" class="fas fa-chevron-left"></i>
+  </div>
   <div class="card">
     <div class="card-image">
       <figure class="image is-4by3">
