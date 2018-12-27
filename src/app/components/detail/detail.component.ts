@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Location} from '@angular/common';
 
 import {DataService} from '../../services/data.service';
 import UserModel from '../../models/user.model';
@@ -12,7 +13,8 @@ export class DetailComponent implements OnInit {
   currentUser: UserModel;
 
   constructor(
-    private dataService: DataService
+    private dataService: DataService,
+    private location: Location
   ) { }
 
   ngOnInit() {
@@ -23,6 +25,10 @@ export class DetailComponent implements OnInit {
         },
         error => console.log(error)
       );
+  }
+
+  onBack(): void {
+    this.location.back();
   }
 
 }
