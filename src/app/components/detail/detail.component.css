@@ -18,3 +18,19 @@ i {
   color: #00DEB4;
   cursor: pointer;
 }
+
+@media (max-width: 500px) {
+  .card {
+    min-width: 70%;
+    min-height: max-content;
+    margin-left: 20px;
+  }
+
+  i {
+    justify-self: flex-start;
+  }
+
+  .back {
+    justify-self: flex-start;
+  }
+}

@@ -5,14 +5,14 @@
 
     <app-search (filterTermChange)="onFilterChange( $event )"></app-search>
 
-    <table class="table is-bordered is-striped is-hoverable">
+    <table id="table" class="table is-bordered is-striped is-hoverable">
       <thead>
         <tr>
           <th>Nombre</th>
           <th>Apellido</th>
-          <th>Teléfono</th>
-          <th>Dirección</th>
-          <th>Foto</th>
+          <th >Teléfono</th>
+          <th *ngIf="innerWidth > 500">Dirección</th>
+          <th *ngIf="innerWidth > 500">Foto</th>
         </tr>
       </thead>
 
@@ -23,9 +23,9 @@
         >
           <td>{{ user.firstName }}</td>
           <td>{{ user.lastName }}</td>
-          <td>{{ user.phone }}</td>
-          <td>{{ user.address }}</td>
-          <td><img [src]="user.thumbnail" alt="user thumbnail"></td>
+          <td >{{ user.phone }}</td>
+          <td *ngIf="innerWidth > 500">{{ user.address }}</td>
+          <td *ngIf="innerWidth > 500"><img [src]="user.thumbnail" alt="user thumbnail"></td>
         </tr>
       </tbody>
     </table>

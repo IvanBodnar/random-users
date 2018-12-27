@@ -12,3 +12,19 @@ tbody > tr {
   cursor: pointer;
 }
 
+@media (min-width: 501px) {
+  table {
+    min-width: 800px;
+  }
+}
+
+
+
+@media (max-width: 500px) {
+  table {
+    max-width: 10px !important;
+  }
+  .home-container {
+    padding: 5px;
+  }
+}

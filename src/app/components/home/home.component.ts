@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 
 import {DataService} from '../../services/data.service';
 import UserModel from '../../models/user.model';
 import {Router} from '@angular/router';
-import {el} from '@angular/platform-browser/testing/src/browser_util';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +12,13 @@ import {el} from '@angular/platform-browser/testing/src/browser_util';
 export class HomeComponent implements OnInit {
   private _usersArray: UserModel[];
   filteredArray: UserModel[];
+  innerWidth: any;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    // @ts-ignore
+    this.innerWidth = event.target.innerWidth;
+  }
 
   constructor(
     private dataService: DataService,
@@ -20,6 +26,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.innerWidth = window.innerWidth;
     this.dataService.getUsers()
       .subscribe(
         data => {
