@@ -22,7 +22,7 @@ export class DataService {
   init() { }
 
   getUsers(): Observable<UserModel[]> {
-    return this.http.get<any>( this.baseUrl + '?results=5' )
+    return this.http.get<any>( this.baseUrl + '?results=20' )
       .pipe(
         map(
           response => {
